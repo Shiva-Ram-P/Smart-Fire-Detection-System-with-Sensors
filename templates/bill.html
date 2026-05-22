@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Bill</title>
+
+    <style>
+
+body{
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url("{{ url_for('static', filename='background.png') }}");
+    background-size: cover;
+    background-position: center;
+    font-family: Arial;
+    text-align: center;
+    color: white;
+}
+
+.bill{
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    width: 350px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+h1{
+    color:#ffffff;
+}
+
+p{
+    font-size:18px;
+}
+
+a{
+    text-decoration:none;
+    background:#ff6b35;
+    color:white;
+    padding:12px 20px;
+    border-radius:8px;
+}
+
+a:hover{
+    background:#e85a2a;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🧾 Order Bill</h1>
+
+<div class="bill">
+
+<p><b>Customer:</b> {{name}}</p>
+
+<p><b>Food Ordered:</b></p>
+
+<ul style="list-style:none;padding:0;">
+{% for food in foods %}
+<li>{{food}} - ₹{{menu[food]}}</li>
+{% endfor %}
+</ul>
+
+<p><b>Distance:</b> {{distance}} km</p>
+
+<p><b>Traffic:</b> {{traffic}}</p>
+
+<p><b>Estimated Delivery Time:</b> {{time}} minutes</p>
+
+<hr>
+
+<p><b>Total Bill:</b> ₹{{total}}</p>
+
+<p><b>Delivery Charge:</b> ₹{{charge}}</p>
+
+<p><b>Final Amount:</b> ₹{{final_total}}</p>
+
+<br>
+
+<a href="/">Back to Menu</a>
+
+</div>
+
+</body>
+</html>
