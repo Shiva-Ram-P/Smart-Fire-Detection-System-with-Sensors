@@ -1,0 +1,5 @@
+opencv-python
+numpy
+twilio
+adafruit-circuitpython-dht
+RPi.GPIO
